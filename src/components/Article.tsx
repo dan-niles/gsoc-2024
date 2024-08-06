@@ -80,8 +80,11 @@ export function Article() {
 					</figure> */}
 
 					<h3 className="text-2xl font-bold">View ZIMs</h3>
+					<p>
+						Here are some of the ZIM files created during the project. Have a
+						look and explore the content!
+					</p>
 					<Carousel
-						className="mt-2"
 						opts={{
 							align: "start",
 							loop: true,

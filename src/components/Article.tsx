@@ -37,18 +37,18 @@ export function Article() {
 						visually appealing and user-friendly design, making educational
 						videos and other content more accessible for Kiwix users worldwide.
 					</p>
-					<figure className="lg:-mx-12 xl:-mx-20">
+					{/* <figure className="lg:-mx-12 xl:-mx-20">
 						<img
-							src="/placeholder.svg"
+							src="banner.jpeg"
 							alt="Cover image"
-							width={1250}
-							height={340}
+							// width={1250}
+							// height={340}
 							className="aspect-video overflow-hidden rounded-lg object-cover"
 						/>
 						<figcaption className="text-center">
 							Image caption goes here
 						</figcaption>
-					</figure>
+					</figure> */}
 				</article>
 			</main>
 			<footer className="bg-muted py-6 px-4 md:px-6">

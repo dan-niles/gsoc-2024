@@ -51,11 +51,6 @@ export function Article() {
 					</figure> */}
 				</article>
 			</main>
-			<footer className="bg-muted py-6 px-4 md:px-6">
-				<div className="container max-w-3xl text-sm text-muted-foreground">
-					&copy; 2024 Acme Inc. All rights reserved.
-				</div>
-			</footer>
 		</div>
 	);
 }

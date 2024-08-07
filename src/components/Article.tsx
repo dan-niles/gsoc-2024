@@ -1,11 +1,14 @@
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "./ui/card";
+// import {
+// 	Carousel,
+// 	CarouselContent,
+// 	CarouselItem,
+// 	CarouselNext,
+// 	CarouselPrevious,
+// } from "@/components/ui/carousel";
+// import { Card, CardContent } from "./ui/card";
+
+import ReactBeforeSliderComponent from "react-before-after-slider-component";
+import "react-before-after-slider-component/dist/build.css";
 
 const Link = ({
 	href,
@@ -25,21 +28,42 @@ const Link = ({
 );
 
 export function Article() {
-	const ZIM_FILES = [
+	// const ZIM_FILES = [
+	// 	{
+	// 		title: "Stéphane Coillet-Matillon",
+	// 		thumbnail: "1.png",
+	// 		url: "https://library.kiwix.org/viewer#litterature-audio-poetry_fr_2024-08/index.html",
+	// 	},
+	// 	{
+	// 		title: "Canadian Prepper",
+	// 		thumbnail: "2.png",
+	// 		url: "https://library.kiwix.org/viewer#canadian_prepper_bugoutconcepts_en_2024-07/index.html",
+	// 	},
+	// 	{
+	// 		title: "Deus Ex Silicium",
+	// 		thumbnail: "3.png",
+	// 		url: "https://dev.library.kiwix.org/viewer#deus-ex-silicium_fr_all_2024-07/index.html",
+	// 	},
+	// ];
+
+	const BEFORE_AFTER_IMAGES = [
 		{
-			title: "Stéphane Coillet-Matillon",
-			thumbnail: "1.png",
-			url: "https://library.kiwix.org/viewer#litterature-audio-poetry_fr_2024-08/index.html",
+			before: {
+				imageUrl: "img/before-1.webp",
+			},
+			after: {
+				imageUrl: "img/after-1.webp",
+			},
+			caption: "Channel Landing Page",
 		},
 		{
-			title: "Canadian Prepper",
-			thumbnail: "2.png",
-			url: "https://library.kiwix.org/viewer#canadian_prepper_bugoutconcepts_en_2024-07/index.html",
-		},
-		{
-			title: "Deus Ex Silicium",
-			thumbnail: "3.png",
-			url: "https://dev.library.kiwix.org/viewer#deus-ex-silicium_fr_all_2024-07/index.html",
+			before: {
+				imageUrl: "img/before-2.webp",
+			},
+			after: {
+				imageUrl: "img/after-2.webp",
+			},
+			caption: "Video Player Page",
 		},
 	];
 
@@ -112,12 +136,34 @@ export function Article() {
 						</figcaption>
 					</figure> */}
 
-					<h3 className="text-2xl font-bold">View ZIMs</h3>
+					<h3 className="text-2xl font-bold">Screenshots</h3>
+					<p>
+						Move the slider to see the before and after screenshots of the Kiwix
+						YouTube UI.
+					</p>
+					<div className="s">
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+							{BEFORE_AFTER_IMAGES.map((image, index) => (
+								<div key={index}>
+									<ReactBeforeSliderComponent
+										firstImage={image.before}
+										secondImage={image.after}
+										delimiterColor="#0f172a"
+									/>
+									<figcaption className="text-center text-sm mt-1">
+										{image.caption}
+									</figcaption>
+								</div>
+							))}
+						</div>
+					</div>
+
+					{/* <h3 className="text-2xl font-bold">View ZIMs</h3>
 					<p>
 						Here are some of the ZIM files created during the project. Have a
 						look and explore the content!
 					</p>
-					<div className="container">
+					<div>
 						<Carousel
 							opts={{
 								align: "start",
@@ -147,7 +193,7 @@ export function Article() {
 							<CarouselPrevious />
 							<CarouselNext />
 						</Carousel>
-					</div>
+					</div> */}
 				</article>
 			</main>
 		</div>

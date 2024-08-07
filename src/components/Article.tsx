@@ -7,6 +7,23 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "./ui/card";
 
+const Link = ({
+	href,
+	children,
+}: {
+	href: string;
+	children: React.ReactNode;
+}) => (
+	<a
+		href={href}
+		target="_blank"
+		rel="noreferrer"
+		className="text-blue-700 hover:underline"
+	>
+		{children}
+	</a>
+);
+
 export function Article() {
 	const ZIM_FILES = [
 		{
@@ -28,7 +45,7 @@ export function Article() {
 
 	return (
 		<div className="flex flex-col min-h-dvh">
-			<header className="bg-primary py-12 px-4 md:px-6">
+			<header className="bg-primary py-12 md:px-6">
 				<div className="container max-w-4xl">
 					<div className="space-y-2 not-prose">
 						<h1 className="text-4xl font-extrabold tracking-tight text-primary-foreground lg:text-5xl">
@@ -42,29 +59,45 @@ export function Article() {
 					</div>
 				</div>
 			</header>
-			<main className="py-8 px-4 md:px-6 lg:grid lg:gap-8">
+			<main className="py-7 md:px-6">
 				<article className="container max-w-4xl grid gap-4">
 					<p>
-						During the summer of 2024, I participated in Google Summer of Code
-						(GSoC) with Kiwix, working on a project titled YouTube UI Revamp.
-						This document outlines the initial tasks, changes made throughout
-						the project, developments achieved, and work that remains to be
-						done.
+						During the summer of 2024, I participated in{" "}
+						<Link href="https://summerofcode.withgoogle.com/">
+							Google Summer of Code
+						</Link>{" "}
+						(GSoC) with <Link href="https://kiwix.org/">Kiwix</Link>, working on
+						a project titled <strong>YouTube UI Revamp</strong>. This document
+						outlines the initial tasks, changes made throughout the project,
+						developments achieved, and work that remains to be done.
 					</p>
 
 					<h3 className="text-2xl font-bold">About Kiwix</h3>
 					<p>
 						Kiwix is a free and open-source offline web browser. Users can
-						download content in the form of ZIM files for offline viewing with
-						Kiwix.
+						download content in the form of{" "}
+						<Link href={"https://wiki.openzim.org/wiki/ZIM_file_format"}>
+							ZIM
+						</Link>{" "}
+						files for offline viewing with Kiwix.
 					</p>
 
-					<h3 className="text-2xl font-bold">Project Description</h3>
+					<h3 className="text-2xl font-bold">Project Details</h3>
 					<p>
-						This project aims to improve the Kiwix YouTube Scraper by enhancing
-						the user interface for YouTube ZIMs. The goal is to create a more
-						visually appealing and user-friendly design, making educational
-						videos and other content more accessible for Kiwix users worldwide.
+						<strong>Project Size:</strong> Large (350 hours)
+					</p>
+					<p>
+						<strong>Description:</strong> This project aims to improve the Kiwix
+						YouTube Scraper by enhancing the user interface for YouTube ZIMs.
+						The goal is to create a more visually appealing and user-friendly
+						design, making educational videos and other content more accessible
+						for Kiwix users worldwide.
+					</p>
+					<p>
+						<strong>GitHub Repository:</strong>{" "}
+						<Link href="https://github.com/openzim/youtube">
+							https://github.com/openzim/youtube
+						</Link>
 					</p>
 					{/* <figure className="lg:-mx-12 xl:-mx-20">
 						<img
@@ -84,35 +117,37 @@ export function Article() {
 						Here are some of the ZIM files created during the project. Have a
 						look and explore the content!
 					</p>
-					<Carousel
-						opts={{
-							align: "start",
-							loop: true,
-						}}
-					>
-						<CarouselContent>
-							{ZIM_FILES.map((file, index) => (
-								<CarouselItem key={index} className="basis-full md:basis-1/3">
-									<a href={file.url} target="_blank" rel="noreferrer">
-										<Card>
-											<CardContent className="flex flex-col items-center justify-center p-4">
-												<img
-													src={`zim_imgs/${file.thumbnail}`}
-													alt={file.title}
-													className="w-full object-cover rounded-lg"
-												/>
-												<h4 className="text-lg font-semibold mt-4">
-													{file.title}
-												</h4>
-											</CardContent>
-										</Card>
-									</a>
-								</CarouselItem>
-							))}
-						</CarouselContent>
-						<CarouselPrevious />
-						<CarouselNext />
-					</Carousel>
+					<div className="container">
+						<Carousel
+							opts={{
+								align: "start",
+								loop: true,
+							}}
+						>
+							<CarouselContent>
+								{ZIM_FILES.map((file, index) => (
+									<CarouselItem key={index} className="basis-full md:basis-1/3">
+										<a href={file.url} target="_blank" rel="noreferrer">
+											<Card>
+												<CardContent className="flex flex-col items-center justify-center p-4">
+													<img
+														src={`zim_imgs/${file.thumbnail}`}
+														alt={file.title}
+														className="w-full object-cover rounded-lg"
+													/>
+													<h4 className="text-lg font-semibold mt-4">
+														{file.title}
+													</h4>
+												</CardContent>
+											</Card>
+										</a>
+									</CarouselItem>
+								))}
+							</CarouselContent>
+							<CarouselPrevious />
+							<CarouselNext />
+						</Carousel>
+					</div>
 				</article>
 			</main>
 		</div>

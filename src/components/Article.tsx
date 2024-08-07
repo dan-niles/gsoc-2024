@@ -95,8 +95,6 @@ export function Article() {
 						outlines the initial tasks, changes made throughout the project,
 						developments achieved, and work that remains to be done.
 					</p>
-
-					<h3 className="text-2xl font-bold">About Kiwix</h3>
 					<p>
 						Kiwix is a free and open-source offline web browser. Users can
 						download content in the form of{" "}
@@ -107,9 +105,6 @@ export function Article() {
 					</p>
 
 					<h3 className="text-2xl font-bold">Project Details</h3>
-					<p>
-						<strong>Project Size:</strong> Large (350 hours)
-					</p>
 					<p>
 						<strong>Description:</strong> This project aims to improve the Kiwix
 						YouTube Scraper by enhancing the user interface for YouTube ZIMs.

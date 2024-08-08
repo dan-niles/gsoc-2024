@@ -10,7 +10,12 @@
 import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
 import { Button } from "./ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, GitPullRequestArrow } from "lucide-react";
+import { CodeBlock, atomOneDark as codeBlockTheme } from "react-code-blocks";
+
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import React from "react";
 
 const Link = ({
 	href,
@@ -54,6 +59,9 @@ export function Article() {
 	// 	},
 	// ];
 
+	const [open, setOpen] = React.useState(false);
+	const [index, setIndex] = React.useState(-1);
+
 	const BEFORE_AFTER_IMAGES = [
 		{
 			before: {
@@ -86,7 +94,7 @@ export function Article() {
 						<div className="flex items-center gap-2 text-sm text-primary-foreground">
 							<div>By Dan Niles</div>
 							<div className="h-1 w-1 rounded-full bg-primary-foreground/50" />
-							<div>August 6, 2024</div>
+							<div>August 8, 2024</div>
 						</div>
 					</div>
 					<div className="mt-4">
@@ -176,7 +184,7 @@ export function Article() {
 						Move the slider to see the before and after screenshots of the Kiwix
 						YouTube UI.
 					</p>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-2">
 						{BEFORE_AFTER_IMAGES.map((image, index) => (
 							<div key={index}>
 								<div className="grid grid-cols-2 text-xs font-light mb-2 text-gray-500">
@@ -197,6 +205,201 @@ export function Article() {
 							</div>
 						))}
 					</div>
+
+					<h3 className="text-2xl font-bold">Work Done</h3>
+					<div className="flex md:flex-row flex-col items-center gap-2">
+						<p>Here are the merged pull requests for the project:</p>
+						<a
+							href="https://github.com/openzim/youtube/pulls?q=is%3Apr+author%3Adan-niles+is%3Amerged+"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<Button
+								size="sm"
+								variant="default"
+								className="py-0 rounded-2xl d-flex items-center justify-center"
+							>
+								<GitPullRequestArrow className="w-4 h-4 mr-2" />
+								Merged PRs
+								<ExternalLink className="ml-2 w-3" />
+							</Button>
+						</a>
+					</div>
+
+					<p>
+						The task was a large 350-hour project to revamp the UI for the Kiwix
+						YouTube Scraper. The scraper operates by taking a channel or
+						playlist ID, scraping the content from the internet, and packaging
+						it into a ZIM file - a format that essentially contains a mini
+						website, accessible via Kiwix readers.
+					</p>
+					<p>
+						Previously, the scraper used Jinja HTML templates to render each
+						page of the YouTube channel. The goal of this revamp was to replace
+						that approach with a Vue.js UI, offering a more user-friendly and
+						minimal design.
+					</p>
+
+					<h3 className="text-lg font-bold">Modifying the Scraper - Python</h3>
+
+					<p>
+						Even though this project was a UI revamp, I spent a lot of time
+						working in Python, modifying the scraper. I started by upgrading the
+						scraper's dependencies to the latest versions, which helped me
+						understand the codebase better. Then, I replaced the Jinja HTML
+						templates with JSON files that store all the information about a
+						scraped channel or playlist. These JSON files will be used by the
+						new Vue.js UI.
+					</p>
+
+					<p>
+						I defined a schema for the different objects (videos, playlists,
+						channels) using Pydantic and used it to generate the necessary JSON
+						files. For example, the JSON file for a single video looks like
+						this:
+					</p>
+
+					<CodeBlock
+						text={
+							'{ \n\t"id": "jJSt1ZwCpCg", \n\t"title": "Resolve All Conflicts | Episode 02 | Twice as Wise | Season 01", \n\t"description": "-", \n\t"author": { \n\t\t"channelId": "UC-yXHUyLqMxx9fTlAeB0dQQ",\n\t\t"channelTitle": "Project FUEL", \n\t\t"channelDescription": "-",\n\t\t"channelJoinedDate": "2018-10-09T09:01:02Z",\n\t\t"profilePath": "channels/UC-yXHUyLqMxx9fTlAeB0dQQ/profile.jpg",\n\t\t"bannerPath": "channels/UC-yXHUyLqMxx9fTlAeB0dQQ/banner.jpg"\n\t},\n\t"publicationDate": "2013-10-06T06:28:55Z",\n\t"videoPath": "videos/jJSt1ZwCpCg/video.webm",\n\t"thumbnailPath": "videos/jJSt1ZwCpCg/video.webp", \n\t"subtitlePath": null,\n\t"subtitleList": [],\n\t"duration": "PT1M31S"\n}'
+						}
+						codeBlockStyle={{ fontSize: "0.5px" }}
+						codeContainerStyle={{ fontSize: "0.8rem" }}
+						customStyle={{
+							borderRadius: "0.8rem",
+							background: "#0f172a",
+							color: "#e3e3e3",
+						}}
+						language={"javascript"}
+						showLineNumbers={true}
+						theme={codeBlockTheme}
+					/>
+
+					<h3 className="text-lg font-bold">Frontend - Vue.js (TypeScript)</h3>
+					<p>
+						Next, was building the actual UI. I used{" "}
+						<Link href="https://vuetifyjs.com/en/">Vuetify</Link> as the
+						component framework because it's based on{" "}
+						<Link href="https://m3.material.io/">Google's Material Design</Link>
+						, which I thought would give the interface a look and feel similar
+						to YouTube.
+					</p>
+					<p>
+						There were 4 main pages that had to be built:
+						<ol>
+							<div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+								<div className="col-span-4">
+									<li className="font-bold my-2">1. Videos page</li>
+									<p>
+										This is the landing page of the ZIM file. Users can browse
+										through the available videos and select one to watch. The
+										layout closely resembles the landing page of an actual
+										YouTube channel.
+									</p>
+								</div>
+								<img
+									src="ui/1.png"
+									onClick={() => {
+										setIndex(0);
+										setOpen(true);
+									}}
+									className="rounded-lg border col-span-2 cursor-pointer"
+								></img>
+							</div>
+
+							<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
+								<div className="col-span-4">
+									<li className="font-bold my-2">2. Playlists page</li>
+									<p>
+										This page displays all the available playlists in the ZIM
+										file. It provides users with a quick overview of the
+										playlists, allowing them to choose one to play. The layout
+										is also similar to the playlists page on YouTube.
+									</p>
+								</div>
+								<img
+									src="ui/2.png"
+									onClick={() => {
+										setIndex(1);
+										setOpen(true);
+									}}
+									className="rounded-lg border col-span-2 cursor-pointer"
+								></img>
+							</div>
+
+							<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
+								<div className="col-span-4">
+									<li className="font-bold my-2">3. Playlist View page</li>
+									<p>
+										This page lists all the videos within a particular playlist.
+										Users can click on the “View full playlist” link under a
+										playlist on the Playlists Page and be redirected here.
+									</p>
+								</div>
+								<img
+									src="ui/3.png"
+									onClick={() => {
+										setIndex(2);
+										setOpen(true);
+									}}
+									className="rounded-lg border col-span-2 cursor-pointer"
+								></img>
+							</div>
+
+							<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
+								<div className="col-span-4">
+									<li className="font-bold my-2">4. Video Player page</li>
+									<p>
+										This is the page where users can watch videos. A playlist
+										panel on the right lists all the videos, allowing users to
+										select and switch between them as they like. The page also
+										includes controls for looping and shuffling videos.
+									</p>
+								</div>
+								<img
+									src="ui/4.png"
+									onClick={() => {
+										setIndex(3);
+										setOpen(true);
+									}}
+									className="rounded-lg border col-span-2 cursor-pointer"
+								></img>
+							</div>
+						</ol>
+					</p>
+
+					<Lightbox
+						open={open}
+						close={() => setOpen(false)}
+						index={index}
+						controller={{ closeOnBackdropClick: true }}
+						slides={[
+							{
+								src: "ui/1.png",
+								alt: "Videos Page",
+								width: 2880,
+								height: 1630,
+							},
+							{
+								src: "ui/2.png",
+								alt: "Playlists Page",
+								width: 2880,
+								height: 1630,
+							},
+							{
+								src: "ui/3.png",
+								alt: "Playlist View Page",
+								width: 2880,
+								height: 1630,
+							},
+							{
+								src: "ui/4.png",
+								alt: "Video Player Page",
+								width: 2880,
+								height: 1630,
+							},
+						]}
+					/>
 
 					{/* <h3 className="text-2xl font-bold">View ZIMs</h3>
 					<p>

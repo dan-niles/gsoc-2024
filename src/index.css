@@ -1,3 +1,7 @@
 .before-after-slider__delimiter {
 	border-radius: 20em;
 }
+
+.yarl__slide_image {
+	border-radius: 0.5rem;
+}

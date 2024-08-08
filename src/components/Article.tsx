@@ -27,6 +27,12 @@ const Link = ({
 	</a>
 );
 
+const delimiterIconStyles = {
+	padding: "10px",
+	backgroundSize: "cover",
+	backgroundImage: "url(img/arrow.png)",
+};
+
 export function Article() {
 	// const ZIM_FILES = [
 	// 	{
@@ -136,21 +142,26 @@ export function Article() {
 						Move the slider to see the before and after screenshots of the Kiwix
 						YouTube UI.
 					</p>
-					<div className="s">
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-							{BEFORE_AFTER_IMAGES.map((image, index) => (
-								<div key={index}>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+						{BEFORE_AFTER_IMAGES.map((image, index) => (
+							<div key={index}>
+								<div className="grid grid-cols-2 text-xs font-light mb-2 text-gray-500">
+									<span>New UI</span>
+									<span className="text-right">Old UI</span>
+								</div>
+								<div>
 									<ReactBeforeSliderComponent
 										firstImage={image.before}
 										secondImage={image.after}
 										delimiterColor="#0f172a"
+										delimiterIconStyles={delimiterIconStyles}
 									/>
 									<figcaption className="text-center text-sm mt-1">
 										{image.caption}
 									</figcaption>
 								</div>
-							))}
-						</div>
+							</div>
+						))}
 					</div>
 
 					{/* <h3 className="text-2xl font-bold">View ZIMs</h3>

@@ -143,7 +143,6 @@ export function Article() {
 						outlines the initial tasks, changes made throughout the project,
 						developments achieved, and work that remains to be done.
 					</p>
-
 					<h3 className="text-2xl font-bold">About Kiwix</h3>
 					<p>
 						Kiwix is a free and open-source offline web browser. Users can
@@ -153,7 +152,6 @@ export function Article() {
 						</Link>{" "}
 						files for offline viewing with Kiwix.
 					</p>
-
 					<h3 className="text-2xl font-bold">Project Details</h3>
 					<p>
 						This project aims to improve the{" "}
@@ -165,7 +163,6 @@ export function Article() {
 						educational videos and other content more accessible for Kiwix users
 						worldwide.
 					</p>
-
 					{/* <figure className="lg:-mx-12 xl:-mx-20">
 						<img
 							src="banner.jpeg"
@@ -178,7 +175,6 @@ export function Article() {
 							Image caption goes here
 						</figcaption>
 					</figure> */}
-
 					<h3 className="text-2xl font-bold">Screenshots</h3>
 					<p>
 						Move the slider to see the before and after screenshots of the Kiwix
@@ -205,7 +201,6 @@ export function Article() {
 							</div>
 						))}
 					</div>
-
 					<h3 className="text-2xl font-bold">Work Done</h3>
 					<div className="flex md:flex-row flex-col items-center gap-2">
 						<p>Here are the merged pull requests for the project:</p>
@@ -225,7 +220,6 @@ export function Article() {
 							</Button>
 						</a>
 					</div>
-
 					<p>
 						The task was a large 350-hour project to revamp the UI for the Kiwix
 						YouTube Scraper. The scraper operates by taking a channel or
@@ -239,9 +233,7 @@ export function Article() {
 						that approach with a Vue.js UI, offering a more user-friendly and
 						minimal design.
 					</p>
-
 					<h3 className="text-lg font-bold">Modifying the Scraper - Python</h3>
-
 					<p>
 						Even though this project was a UI revamp, I spent a lot of time
 						working in Python, modifying the scraper. I started by upgrading the
@@ -251,14 +243,12 @@ export function Article() {
 						scraped channel or playlist. These JSON files will be used by the
 						new Vue.js UI.
 					</p>
-
 					<p>
 						I defined a schema for the different objects (videos, playlists,
 						channels) using Pydantic and used it to generate the necessary JSON
 						files. For example, the JSON file for a single video looks like
 						this:
 					</p>
-
 					<CodeBlock
 						text={
 							'{ \n\t"id": "jJSt1ZwCpCg", \n\t"title": "Resolve All Conflicts | Episode 02 | Twice as Wise | Season 01", \n\t"description": "-", \n\t"author": { \n\t\t"channelId": "UC-yXHUyLqMxx9fTlAeB0dQQ",\n\t\t"channelTitle": "Project FUEL", \n\t\t"channelDescription": "-",\n\t\t"channelJoinedDate": "2018-10-09T09:01:02Z",\n\t\t"profilePath": "channels/UC-yXHUyLqMxx9fTlAeB0dQQ/profile.jpg",\n\t\t"bannerPath": "channels/UC-yXHUyLqMxx9fTlAeB0dQQ/banner.jpg"\n\t},\n\t"publicationDate": "2013-10-06T06:28:55Z",\n\t"videoPath": "videos/jJSt1ZwCpCg/video.webm",\n\t"thumbnailPath": "videos/jJSt1ZwCpCg/video.webp", \n\t"subtitlePath": null,\n\t"subtitleList": [],\n\t"duration": "PT1M31S"\n}'
@@ -274,7 +264,6 @@ export function Article() {
 						showLineNumbers={true}
 						theme={codeBlockTheme}
 					/>
-
 					<h3 className="text-lg font-bold">Frontend - Vue.js (TypeScript)</h3>
 					<p>
 						Next, was building the actual UI. I used{" "}
@@ -282,10 +271,11 @@ export function Article() {
 						component framework because it's based on{" "}
 						<Link href="https://m3.material.io/">Google's Material Design</Link>
 						, which I thought would give the interface a look and feel similar
-						to YouTube.
+						to YouTube. I used <Link href="https://videojs.com/">Video.js</Link>{" "}
+						for video playback.
 					</p>
 					<p>
-						There were 4 main pages that had to be built:
+						There were 4 main pages that had to be built were:
 						<ol>
 							<div className="grid grid-cols-1 md:grid-cols-6 gap-4">
 								<div className="col-span-4">
@@ -367,6 +357,12 @@ export function Article() {
 							</div>
 						</ol>
 					</p>
+					<h3 className="text-lg font-bold">Testing - pytest, Cypress</h3>
+					<p>
+						To ensure the new UI works as expected, I wrote tests for the
+						scraper and the UI. I wrote end to end tests for the scraper using
+						pytest and integration Tests for the UI using Cypress.
+					</p>
 
 					<Lightbox
 						open={open}
@@ -400,6 +396,16 @@ export function Article() {
 							},
 						]}
 					/>
+					<h3 className="text-2xl font-bold">Current State</h3>
+					<p>
+						A new major version (
+						<Link href="https://github.com/openzim/youtube/releases/tag/v3.0.0">
+							v3
+						</Link>
+						) of the scraper has been released, which includes the new UI. The
+						scraper is now capable of scraping a channel or playlist and
+						packaging it into a ZIM file with the new Vue.js UI.
+					</p>
 
 					{/* <h3 className="text-2xl font-bold">View ZIMs</h3>
 					<p>
@@ -437,6 +443,27 @@ export function Article() {
 							<CarouselNext />
 						</Carousel>
 					</div> */}
+
+					<h3 className="text-2xl font-bold">Future Work</h3>
+					<p>
+						As for future improvements to the scraper, there are plans to
+						completely migrate to `yt-dlp` from the YouTube API for scraping (
+						<Link href="https://github.com/openzim/youtube/issues/177">
+							openzim/youtube#177
+						</Link>
+						).
+					</p>
+
+					<h3 className="text-2xl font-bold">Challenges</h3>
+					<p>
+						The biggest challenge I faced during the project was ensuring the
+						new UI worked on older browsers. To make sure video (webm) playback
+						was supported on older versions of Safari, I had to set up{" "}
+						<Link href="https://github.com/bvibber/ogv.js">ogv.js</Link> as a
+						fallback for Video.js. The thumbnails in the ZIM were in webp
+						format, so I had to add polyfills for browsers that don't support
+						webp.
+					</p>
 				</article>
 			</main>
 		</div>

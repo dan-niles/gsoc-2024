@@ -9,6 +9,8 @@
 
 import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
+import { Button } from "./ui/button";
+import { ExternalLink } from "lucide-react";
 
 const Link = ({
 	href,
@@ -87,6 +89,38 @@ export function Article() {
 							<div>August 6, 2024</div>
 						</div>
 					</div>
+					<div className="mt-4">
+						<a
+							href="https://summerofcode.withgoogle.com/programs/2024/projects/Zkus2foO"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<Button
+								size="sm"
+								variant="secondary"
+								className="py-0 rounded-2xl d-flex items-center justify-center"
+							>
+								<img src="gsoc.png" alt="GSoC Page" className="w-4 h-4 mr-2" />
+								GSoC Page
+								<ExternalLink className="ml-2 w-3" />
+							</Button>
+						</a>
+						<a
+							href="https://github.com/openzim/youtube"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<Button
+								size="sm"
+								variant="secondary"
+								className="py-0 rounded-2xl d-flex items-center justify-center ml-2"
+							>
+								<img src="github.svg" alt="GitHub" className="w-4 h-4 mr-2" />
+								GitHub Repository
+								<ExternalLink className="ml-2 w-3" />
+							</Button>
+						</a>
+					</div>
 				</div>
 			</header>
 			<main className="py-7 md:px-6">
@@ -101,6 +135,8 @@ export function Article() {
 						outlines the initial tasks, changes made throughout the project,
 						developments achieved, and work that remains to be done.
 					</p>
+
+					<h3 className="text-2xl font-bold">About Kiwix</h3>
 					<p>
 						Kiwix is a free and open-source offline web browser. Users can
 						download content in the form of{" "}
@@ -112,18 +148,16 @@ export function Article() {
 
 					<h3 className="text-2xl font-bold">Project Details</h3>
 					<p>
-						<strong>Description:</strong> This project aims to improve the Kiwix
-						YouTube Scraper by enhancing the user interface for YouTube ZIMs.
-						The goal is to create a more visually appealing and user-friendly
-						design, making educational videos and other content more accessible
-						for Kiwix users worldwide.
+						This project aims to improve the{" "}
+						<Link href={"https://github.com/openzim/youtube"}>
+							Kiwix YouTube Scraper
+						</Link>{" "}
+						by enhancing the user interface for YouTube ZIMs. The goal is to
+						create a more visually appealing and user-friendly design, making
+						educational videos and other content more accessible for Kiwix users
+						worldwide.
 					</p>
-					<p>
-						<strong>GitHub Repository:</strong>{" "}
-						<Link href="https://github.com/openzim/youtube">
-							https://github.com/openzim/youtube
-						</Link>
-					</p>
+
 					{/* <figure className="lg:-mx-12 xl:-mx-20">
 						<img
 							src="banner.jpeg"

@@ -145,23 +145,29 @@ export function Article() {
 					</p>
 					<h3 className="text-2xl font-bold">About Kiwix</h3>
 					<p>
-						Kiwix is a free and open-source offline web browser. Users can
-						download content in the form of{" "}
+						<Link href="https://kiwix.org/">Kiwix</Link> is primarily an NGO
+						dedicated to bringing internet content to everyone. To achieve this,
+						Kiwix offers free and open-source offline web browsing, allowing
+						users to download content in the form of{" "}
 						<Link href={"https://wiki.openzim.org/wiki/ZIM_file_format"}>
 							ZIM
 						</Link>{" "}
-						files for offline viewing with Kiwix.
+						files and access it through{" "}
+						<Link href={"https://kiwix.org/en/applications/"}>
+							reading apps
+						</Link>{" "}
+						for offline viewing.
 					</p>
 					<h3 className="text-2xl font-bold">Project Details</h3>
 					<p>
 						This project aims to improve the{" "}
 						<Link href={"https://github.com/openzim/youtube"}>
 							Kiwix YouTube Scraper
-						</Link>{" "}
-						by enhancing the user interface for YouTube ZIMs. The goal is to
-						create a more visually appealing and user-friendly design, making
-						educational videos and other content more accessible for Kiwix users
-						worldwide.
+						</Link>
+						, which is designed to create ZIMs from YouTube videos. By enhancing
+						the user interface for YouTube ZIMs, the goal is to create a more
+						visually appealing and user-friendly design, making educational
+						videos and other content more accessible for Kiwix users worldwide.
 					</p>
 					{/* <figure className="lg:-mx-12 xl:-mx-20">
 						<img
@@ -203,7 +209,7 @@ export function Article() {
 					</div>
 					<h3 className="text-2xl font-bold">Work Done</h3>
 					<div className="flex md:flex-row flex-col items-center gap-2">
-						<p>Here are the merged pull requests for the project:</p>
+						<p>The merged pull requests for the project can be viewed here:</p>
 						<a
 							href="https://github.com/openzim/youtube/pulls?q=is%3Apr+author%3Adan-niles+is%3Amerged+"
 							target="_blank"
@@ -396,11 +402,23 @@ export function Article() {
 							},
 						]}
 					/>
+
+					<h3 className="text-2xl font-bold">Challenges</h3>
+					<p>
+						The biggest challenge I faced during the project was ensuring the
+						new UI worked on older browsers. To make sure video (webm) playback
+						was supported on older versions of Safari, I had to set up{" "}
+						<Link href="https://github.com/bvibber/ogv.js">ogv.js</Link> as a
+						fallback for Video.js. The thumbnails in the ZIM were in webp
+						format, so I had to add polyfills for browsers that don't support
+						webp.
+					</p>
+
 					<h3 className="text-2xl font-bold">Current State</h3>
 					<p>
 						A new major version (
 						<Link href="https://github.com/openzim/youtube/releases/tag/v3.0.0">
-							v3
+							v3.0.0
 						</Link>
 						) of the scraper has been released, which includes the new UI. The
 						scraper is now capable of scraping a channel or playlist and
@@ -446,23 +464,16 @@ export function Article() {
 
 					<h3 className="text-2xl font-bold">Future Work</h3>
 					<p>
-						As for future improvements to the scraper, there are plans to
-						completely migrate to `yt-dlp` from the YouTube API for scraping (
-						<Link href="https://github.com/openzim/youtube/issues/177">
-							openzim/youtube#177
-						</Link>
-						).
-					</p>
-
-					<h3 className="text-2xl font-bold">Challenges</h3>
-					<p>
-						The biggest challenge I faced during the project was ensuring the
-						new UI worked on older browsers. To make sure video (webm) playback
-						was supported on older versions of Safari, I had to set up{" "}
-						<Link href="https://github.com/bvibber/ogv.js">ogv.js</Link> as a
-						fallback for Video.js. The thumbnails in the ZIM were in webp
-						format, so I had to add polyfills for browsers that don't support
-						webp.
+						Looking ahead, there are plans for a{" "}
+						<Link href="https://github.com/openzim/youtube/milestone/6">
+							v3.1.0
+						</Link>{" "}
+						release that will include various enhancements and bug fixes.
+						Additionally, the project has a{" "}
+						<Link href="https://github.com/openzim/youtube/milestone/8">
+							backlog
+						</Link>{" "}
+						of ideas for future development.
 					</p>
 				</article>
 			</main>

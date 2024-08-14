@@ -146,9 +146,9 @@ export function Article() {
 					<h3 className="text-2xl font-bold">About Kiwix</h3>
 					<p>
 						<Link href="https://kiwix.org/">Kiwix</Link> is primarily an NGO
-						dedicated to bringing internet content to everyone. To achieve this,
-						Kiwix offers free and open-source offline web browsing, allowing
-						users to download content in the form of{" "}
+						dedicated to providing free and open access of knowledge to
+						everyone. To achieve this, Kiwix offers free and open-source offline
+						web browsing, allowing users to download content in the form of{" "}
 						<Link href={"https://wiki.openzim.org/wiki/ZIM_file_format"}>
 							ZIM
 						</Link>{" "}
@@ -169,18 +169,7 @@ export function Article() {
 						visually appealing and user-friendly design, making educational
 						videos and other content more accessible for Kiwix users worldwide.
 					</p>
-					{/* <figure className="lg:-mx-12 xl:-mx-20">
-						<img
-							src="banner.jpeg"
-							alt="Cover image"
-							// width={1250}
-							// height={340}
-							className="aspect-video overflow-hidden rounded-lg object-cover"
-						/>
-						<figcaption className="text-center">
-							Image caption goes here
-						</figcaption>
-					</figure> */}
+
 					<h3 className="text-2xl font-bold">Screenshots</h3>
 					<p>
 						Move the slider to see the before and after screenshots of the Kiwix
@@ -280,89 +269,88 @@ export function Article() {
 						to YouTube. I used <Link href="https://videojs.com/">Video.js</Link>{" "}
 						for video playback.
 					</p>
-					<p>
-						There were 4 main pages that had to be built were:
-						<ol>
-							<div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-								<div className="col-span-4">
-									<li className="font-bold my-2">1. Videos page</li>
-									<p>
-										This is the landing page of the ZIM file. Users can browse
-										through the available videos and select one to watch. The
-										layout closely resembles the landing page of an actual
-										YouTube channel.
-									</p>
-								</div>
-								<img
-									src="ui/1.png"
-									onClick={() => {
-										setIndex(0);
-										setOpen(true);
-									}}
-									className="rounded-lg border col-span-2 cursor-pointer"
-								></img>
+					<p>There were 4 main pages that had to be built were:</p>
+					<ol>
+						<div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+							<div className="col-span-4">
+								<li className="font-bold mb-2">1. Videos page</li>
+								<p>
+									This is the landing page of the ZIM file. Users can browse
+									through the available videos and select one to watch. The
+									layout closely resembles the landing page of an actual YouTube
+									channel.
+								</p>
 							</div>
+							<img
+								src="ui/1.png"
+								onClick={() => {
+									setIndex(0);
+									setOpen(true);
+								}}
+								className="rounded-lg border col-span-2 cursor-pointer"
+							></img>
+						</div>
 
-							<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
-								<div className="col-span-4">
-									<li className="font-bold my-2">2. Playlists page</li>
-									<p>
-										This page displays all the available playlists in the ZIM
-										file. It provides users with a quick overview of the
-										playlists, allowing them to choose one to play. The layout
-										is also similar to the playlists page on YouTube.
-									</p>
-								</div>
-								<img
-									src="ui/2.png"
-									onClick={() => {
-										setIndex(1);
-										setOpen(true);
-									}}
-									className="rounded-lg border col-span-2 cursor-pointer"
-								></img>
+						<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
+							<div className="col-span-4">
+								<li className="font-bold my-2">2. Playlists page</li>
+								<p>
+									This page displays all the available playlists in the ZIM
+									file. It provides users with a quick overview of the
+									playlists, allowing them to choose one to play. The layout is
+									also similar to the playlists page on YouTube.
+								</p>
 							</div>
+							<img
+								src="ui/2.png"
+								onClick={() => {
+									setIndex(1);
+									setOpen(true);
+								}}
+								className="rounded-lg border col-span-2 cursor-pointer"
+							></img>
+						</div>
 
-							<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
-								<div className="col-span-4">
-									<li className="font-bold my-2">3. Playlist View page</li>
-									<p>
-										This page lists all the videos within a particular playlist.
-										Users can click on the “View full playlist” link under a
-										playlist on the Playlists Page and be redirected here.
-									</p>
-								</div>
-								<img
-									src="ui/3.png"
-									onClick={() => {
-										setIndex(2);
-										setOpen(true);
-									}}
-									className="rounded-lg border col-span-2 cursor-pointer"
-								></img>
+						<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
+							<div className="col-span-4">
+								<li className="font-bold my-2">3. Playlist View page</li>
+								<p>
+									This page lists all the videos within a particular playlist.
+									Users can click on the “View full playlist” link under a
+									playlist on the Playlists Page and be redirected here.
+								</p>
 							</div>
+							<img
+								src="ui/3.png"
+								onClick={() => {
+									setIndex(2);
+									setOpen(true);
+								}}
+								className="rounded-lg border col-span-2 cursor-pointer"
+							></img>
+						</div>
 
-							<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
-								<div className="col-span-4">
-									<li className="font-bold my-2">4. Video Player page</li>
-									<p>
-										This is the page where users can watch videos. A playlist
-										panel on the right lists all the videos, allowing users to
-										select and switch between them as they like. The page also
-										includes controls for looping and shuffling videos.
-									</p>
-								</div>
-								<img
-									src="ui/4.png"
-									onClick={() => {
-										setIndex(3);
-										setOpen(true);
-									}}
-									className="rounded-lg border col-span-2 cursor-pointer"
-								></img>
+						<div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
+							<div className="col-span-4">
+								<li className="font-bold my-2">4. Video Player page</li>
+								<p>
+									This is the page where users can watch videos. A playlist
+									panel on the right lists all the videos, allowing users to
+									select and switch between them as they like. The page also
+									includes controls for looping and shuffling videos.
+								</p>
 							</div>
-						</ol>
-					</p>
+							<img
+								src="ui/4.png"
+								onClick={() => {
+									setIndex(3);
+									setOpen(true);
+								}}
+								className="rounded-lg border col-span-2 cursor-pointer"
+							></img>
+						</div>
+					</ol>
+
 					<h3 className="text-lg font-bold">Testing - pytest, Cypress</h3>
 					<p>
 						To ensure the new UI works as expected, I wrote tests for the
@@ -424,6 +412,19 @@ export function Article() {
 						scraper is now capable of scraping a channel or playlist and
 						packaging it into a ZIM file with the new Vue.js UI.
 					</p>
+					<p>
+						To experience this, you can download a reader from{" "}
+						<Link href="https://kiwix.org/en/applications/">
+							Kiwix Applications
+						</Link>{" "}
+						or use the online version at{" "}
+						<Link href="http://pwa.kiwix.org/">pwa.kiwix.org</Link>. You can
+						also download an updated YouTube ZIM file, such as{" "}
+						<Link href="https://library.kiwix.org/viewer#project-fuel_en">
+							Project Fuel
+						</Link>
+						, or preview it online at the Kiwix Library.
+					</p>
 
 					{/* <h3 className="text-2xl font-bold">View ZIMs</h3>
 					<p>
@@ -474,6 +475,15 @@ export function Article() {
 							backlog
 						</Link>{" "}
 						of ideas for future development.
+					</p>
+
+					<h3 className="text-2xl font-bold">Acknowledgements</h3>
+					<p>
+						A very special thanks to my mentor, Benoît Béraud (
+						<Link href="https://github.com/benoit74">benoit74</Link>) for his
+						guidance and support throughout this project. It was a great
+						experience working with him, and I learned a lot from his feedback
+						and advice.
 					</p>
 				</article>
 			</main>

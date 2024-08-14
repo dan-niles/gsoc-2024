@@ -94,7 +94,7 @@ export function Article() {
 						<div className="flex items-center gap-2 text-sm text-primary-foreground">
 							<div>By Dan Niles</div>
 							<div className="h-1 w-1 rounded-full bg-primary-foreground/50" />
-							<div>August 8, 2024</div>
+							<div>August 14, 2024</div>
 						</div>
 					</div>
 					<div className="mt-4">

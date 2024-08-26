@@ -418,7 +418,7 @@ export function Article() {
 						<Link href="https://library.kiwix.org/viewer#project-fuel_en">
 							Project Fuel
 						</Link>
-						, in the Kiwix Library.
+						, in the online Kiwix Library.
 					</p>
 
 					{/* <h3 className="text-2xl font-bold">View ZIMs</h3>

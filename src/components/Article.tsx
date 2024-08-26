@@ -230,13 +230,11 @@ export function Article() {
 					</p>
 					<h3 className="text-lg font-bold">Modifying the Scraper - Python</h3>
 					<p>
-						Even though this project was a UI revamp, I spent a lot of time
-						working in Python, modifying the scraper. I started by upgrading the
-						scraper's dependencies to the latest versions, which helped me
-						understand the codebase better. Then, I replaced the Jinja HTML
-						templates with JSON files that store all the information about a
-						scraped channel or playlist. These JSON files will be used by the
-						new Vue.js UI.
+						I started by upgrading the scraper's dependencies to the latest
+						versions, which helped me understand the codebase better. Then, I
+						replaced the Jinja HTML templates with JSON files that store all the
+						information about a scraped channel or playlist. These JSON files
+						will be used by the new Vue.js UI.
 					</p>
 					<p>
 						I defined a schema for the different objects (videos, playlists,
@@ -259,7 +257,9 @@ export function Article() {
 						showLineNumbers={true}
 						theme={codeBlockTheme}
 					/>
-					<h3 className="text-lg font-bold">Frontend - Vue.js (TypeScript)</h3>
+					<h3 className="text-lg font-bold">
+						Building the UI - Vue.js (TypeScript)
+					</h3>
 					<p>
 						Next, was building the actual UI. I used{" "}
 						<Link href="https://vuetifyjs.com/en/">Vuetify</Link> as the
@@ -351,12 +351,12 @@ export function Article() {
 						</div>
 					</ol>
 
-					<h3 className="text-lg font-bold">Testing - pytest, Cypress</h3>
+					{/* <h3 className="text-lg font-bold">Testing - pytest, Cypress</h3>
 					<p>
 						To ensure the new UI works as expected, I wrote tests for the
 						scraper and the UI. I wrote end to end tests for the scraper using
 						pytest and integration Tests for the UI using Cypress.
-					</p>
+					</p> */}
 
 					<Lightbox
 						open={open}
@@ -413,17 +413,12 @@ export function Article() {
 						packaging it into a ZIM file with the new Vue.js UI.
 					</p>
 					<p>
-						To experience this, you can download a reader from{" "}
-						<Link href="https://kiwix.org/en/applications/">
-							Kiwix Applications
-						</Link>{" "}
-						or use the online version at{" "}
-						<Link href="http://pwa.kiwix.org/">pwa.kiwix.org</Link>. You can
-						also download an updated YouTube ZIM file, such as{" "}
+						To experience this, you can preview an updated YouTube ZIM file,
+						such as{" "}
 						<Link href="https://library.kiwix.org/viewer#project-fuel_en">
 							Project Fuel
 						</Link>
-						, or preview it online at the Kiwix Library.
+						, in the Kiwix Library.
 					</p>
 
 					{/* <h3 className="text-2xl font-bold">View ZIMs</h3>

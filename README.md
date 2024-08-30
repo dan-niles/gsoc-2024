@@ -1,6 +1,6 @@
 # Google Summer of Code 2024 - Kiwix
 
-During the summer of 2024, I participated in [Google Summer of Code](https://summerofcode.withgoogle.com/) (GSoC) with [Kiwix](https://kiwix.org/), working on a project titled YouTube UI Revamp. This document outlines the initial tasks, changes made throughout the project, developments achieved, and work that remains to be done.
+During the summer of 2024, I participated in [Google Summer of Code](https://summerofcode.withgoogle.com/) (GSoC) with [Kiwix](https://kiwix.org/), working on a project titled **YouTube UI Revamp**. This document outlines the initial tasks, changes made throughout the project, developments achieved, and work that remains to be done.
 
 ## About Kiwix
 

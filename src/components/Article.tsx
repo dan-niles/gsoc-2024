@@ -480,6 +480,11 @@ export function Article() {
 						experience working with him, and I learned a lot from his feedback
 						and advice.
 					</p>
+					<p>
+						I would also like to thank <strong>Google</strong> and{" "}
+						<strong>Kiwix</strong> for giving me the opportunity to participate
+						in this awesome program this year!
+					</p>
 				</article>
 			</main>
 		</div>
